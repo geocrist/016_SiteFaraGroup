@@ -1,0 +1,36 @@
+<div class="table-container" id="session-history-table-container">
+    
+    <table class="table" id="session-history-table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Denumire sesiune</th>
+                <th>Data</th>
+                <th>Tip vot</th>
+                <th>Comenzi</th>
+            </tr>
+        </thead>
+        <tbody id="session-history-table-body">
+            <% for(var i=0; i<sessions.length; i++) { %>
+                <tr>
+                    <td><%= sessions[i].name %></td>
+                    <td><%= sessions[i].date %></td>
+                    <td><%= sessions[i].type %></td>                    
+                    <td>
+                        <button class="delete-button btn border-shadow" id="<%= sessions[i]._id %>">&times</button>
+                        <button class="show-button btn border-shadow" id="<%= sessions[i]._id %>">A</button>
+                    </td>
+                  
+                </tr>
+            <% } %>
+        </tbody>
+    </table> 
+    
+</div>
+
+<div class="pagination-container" id="pagination-container">
+    <div class="pagination-arrows"><i class="fas fa-angle-double-left"></i></div>
+    <div class="pagination-arrows"><i class="fas fa-angle-left"></i></div>
+    <div class="pagination-indicator text_center_hor">1/50</div>     
+    <div class="pagination-arrows"><i class="fas fa-angle-right"></i></div>
+    <div class="pagination-arrows"><i class="fas fa-angle-double-right"></i></div>
+</div>

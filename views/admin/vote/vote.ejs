@@ -1,0 +1,68 @@
+<!--include header-->
+<%- include('../../include/_header') %>
+<!--/include header-->
+
+
+<body>
+    <div id="wrapper">
+        <%- include('../../include/_banner') %>
+        <%- include('../../include/_connected_user') %>
+        <%- include('../../include/_admin_menu') %>
+
+        <h1 class="text_center_hor text_title">Sesiune de vot noua</h1>
+        <h2 class="text_center_hor text_subtitle">Folositi acest formular pentru a crea noi sesiuni de vot si pentru urmari desfasurarea votului in timp real</h2>
+
+        <div class="d-flex justify-left vote-info">
+            <p>Denumirea sesiunii: </p>
+            <input type="text" id="vote-name" value="">
+        </div>
+
+        <div class="d-flex justify-left vote-info">
+            <p>Tipul votului: </p>
+            <select id="vote-type">
+                <option>Pentru</option>
+                <option>Impotriva</option>         
+                <option>Aviz favorabil</option>  
+                <option>Aviz favorabil + observatii</option>  
+                <option>Aviz nefavorabil</option>  
+                <option>Returnare catre initiator</option>  
+                <option>Amanare</option>  
+            </select>
+        </div>
+
+        <div id="vote-condica-container">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Votant</th>
+                        <th>Stare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i<users.length; i++) { %>
+                        <% if(users[i].user_type === 'Client') { %>
+                            <tr class="votant-table-row">          
+                                <td>
+                                    <input type="hidden" class="votant-id" value="<%= users[i]._id %>">
+                                    <input type="hidden" class="votant-surname" value="<%= users[i].surname %>">
+                                    <input type="hidden" class="votant-name" value="<%= users[i].name %>">
+                                    <%= users[i].surname %> <%= users[i].name %>
+                                </td>                                
+                                <td><input type="text" class="votant-vote"></td>
+                            <tr>
+                        <% } %> 
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <button id="vote-start-button" class="btn-standard">START</button>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="/js/vote.js"></script>
+</body>
+
+<!--include footer-->
+<%- include('../../include/_footer') %>
+<!--/include footer-->

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test AXIOS</h1>
+
+    <p id="text-box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi sint provident saepe, totam ab quis minus cum ut ducimus tempora consequuntur aliquid tenetur incidunt pariatur cumque vero! Atque praesentium voluptatibus ducimus, beatae assumenda, qui veniam perspiciatis neque dolore reprehenderit, voluptatum non quaerat dolores quam quia? Harum esse necessitatibus neque.</p>
+
+    <button id="button-get">GET</button>
+    <button id="button-post">POST</button>
+    <button id="button-update">UPDATE!!!PATCH</button>
+    <button id="button-delete">DELETE</button>
+
+    <script defer>          
+            const button_get = document.getElementById('button-get');
+            button_get.addEventListener('click', buttonCallBack);        
+            function buttonCallBack() {
+                //alert('Ai apasat butonul');
+                var paragraph = document.getElementById('text-box');
+                //paragraph.innerHTML = 'Testing';
+                
+                axios.get(`http://localhost:3000/admin/api/v1.0/users/`)    //toti userii
+                //axios.get(`http://localhost:3000/admin/api/v1.0/users/?_id=6024775270892c2dbcb9c3d0`)    //doar un user
+                //axios.get(`http://localhost:3000/admin/api/v1.0/users/?_id=60247e991886882294798d1b`)    //doar un user
+                    .then(response => {
+                        //res.render('admin/users/edit_user', {user: response.data});
+                        //console.log(response.data);
+                        paragraph.innerText = JSON.stringify(response.data, null, '\t');
+                    
+                    })
+                    .catch();
+            }
+
+
+
+            ///////////////////////////UPDATE//////////////
+            const button_update = document.getElementById('button-update');
+            button_update.addEventListener('click', buttonUpdateCallBack);        
+            function buttonUpdateCallBack() {
+                //alert('Ai apasat butonul POST');
+                var paragraph = document.getElementById('text-box');
+                //paragraph.innerHTML = 'Testing';
+                const user = {
+                    surname: 'CEAUSESCU2',
+                    name: 'Nicolae2',
+                    email: 'ceasca@yahoo.com',
+                };
+
+                axios.put(`http://localhost:3000/admin/api/v1.0/users/6025702b67f3211b0ccd1a18`, user) 
+                    .then(response => {
+                        //res.render('admin/users/edit_user', {user: response.data});
+                        //console.log(response.data);
+                        paragraph.innerText = JSON.stringify(response.data, null, '\t');
+                    
+                    })
+                    .catch();
+                
+            }
+
+
+
+
+
+
+////////////////////////////////////DELETE///////////////////////
+            const button_delete = document.getElementById('button-delete');
+            button_delete.addEventListener('click', buttonDeleteCallBack);        
+            function buttonDeleteCallBack() {
+                //alert('Ai apasat butonul');
+                var paragraph = document.getElementById('text-box');
+                //paragraph.innerHTML = 'Testing';
+                
+                axios.delete(`http://localhost:3000/admin/api/v1.0/users/602570d067f3211b0ccd1a19`)  
+                    .then(response => {
+                        //res.render('admin/users/edit_user', {user: response.data});
+                        //console.log(response.data);
+                        paragraph.innerText = JSON.stringify(response.data, null, '\t');
+                    
+                    })
+                    .catch();
+            }
+
+
+
+            ///////////////////////////POST//////////////
+            const button_post = document.getElementById('button-post');
+            button_post.addEventListener('click', buttonPostCallBack);        
+            function buttonPostCallBack() {
+                //alert('Ai apasat butonul POST');
+                var paragraph = document.getElementById('text-box');
+                //paragraph.innerHTML = 'Testing';
+                const user = {
+                    surname: 'CEAUSESCU2',
+                    name: 'Nicolae2',
+                    email: 'ceasca@yahoo.com',
+                    hash: 'hhh',
+                    salt: 'sss',
+                    user_type: 'Client',
+                    active: true
+                };
+
+                axios.post(`http://localhost:3000/admin/api/v1.0/users`, user) 
+                    .then(response => {
+                        //res.render('admin/users/edit_user', {user: response.data});
+                        //console.log(response.data);
+                        paragraph.innerText = JSON.stringify(response.data, null, '\t');
+                    
+                    })
+                    .catch();
+
+
+                // axios({
+                //     method: 'post',
+                //     url: 'http://localhost:3000/admin/api/v1.0/users',
+                //     data: {
+                //         surname: 'CEAUSESCU',
+                //         name: 'Nicolae',
+                //         email: 'neanicu@yahoo.com',
+                //         hash: 'hhh',
+                //         salt: 'sss',
+                //         user_type: 'Client',
+                //         active: true
+                //     }})
+                //     .then(response => {
+                //             //res.render('admin/users/edit_user', {user: response.data});
+                //             //console.log(response.data);
+                //             paragraph.innerText = JSON.stringify(response.data, null, '\t');  
+                //         })
+                //     .catch();
+                
+            }
+
+
+    </script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+ 
+</body>
+</html>
+
+

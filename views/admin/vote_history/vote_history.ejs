@@ -1,0 +1,70 @@
+<!--include header-->
+<%- include('../../include/_header') %>
+<!--/include header-->
+
+
+<body>
+    <div id="wrapper">
+        <%- include('../../include/_banner') %>
+        <%- include('../../include/_connected_user') %>
+        <%- include('../../include/_admin_menu') %>
+
+
+
+<h1 class="text_center_hor text_title">Arhiva sesiunilor de vot</h1>
+<h2 class="text_center_hor text_subtitle">Folositi aceasta pagina pentru a naviga prin arhiva sesiunilor de vot si pentru a genera rapoarte cu rezultatul votului</h2>
+
+<main>
+    <article class="d-flex">
+        <fieldset>
+            <legend>Data, de la:</legend>
+            <input type="date" name="from" language="ro">
+        </fieldset>
+        <fieldset>
+            <legend>Data, pana la:</legend>
+            <input type="date" name="to">
+        </fieldset>
+        <button class="btn-standard" id="apply-filters-but">Aplica filtre</button>
+    </article>
+
+
+
+    <!-- <div class="table-container" id="session-history-table-container">
+    </div> -->
+
+
+    <%- include('_sessions_table') %>
+
+
+
+    <article id="session_history_detail">              
+ 
+    </article>
+
+
+    <article id="session_history_report">              
+        <input type="checkbox" id="" name="ses_his_rep_pres" value="Bike">
+        <label for="ses_his_rep_pres">Prezenta</label><br>
+        <input type="checkbox" id="" name="ses_his_rep_yes" value="Bike">
+        <label for="ses_his_rep_pres">Voturi DA</label><br>
+        <input type="checkbox" id="" name="ses_his_rep_no" value="Bike">
+        <label for="ses_his_rep_pres">Voturi NU</label><br>
+        <input type="checkbox" id="" name="ses_his_rep_abstain" value="Bike">
+        <label for="ses_his_rep_pres">Voturi ABTINERE</label><br>
+        <input type="checkbox" id="" name="ses_his_rep_no_vote" value="Bike">
+        <label for="ses_his_rep_pres">Voturi neexprimate</label><br>
+        <!-- <button class="btn-standard" id="generate-report">Genereaza raport</button> -->
+        <a download id="report-link"><button class="btn-standard">Descarca raport</button></a>
+
+    </article>
+
+
+</main>
+
+    </div>
+    <script defer src="/js/vote_history.js"></script>
+</body>
+
+<!--include footer-->
+<%- include('../../include/_footer') %>
+<!--/include footer-->

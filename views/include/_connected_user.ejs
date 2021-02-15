@@ -1,0 +1,8 @@
+<div class="d-flex connected-user-container justify-between">
+    <% let conUser = 'NEIDENTIFICAT'; %>
+    <% if(typeof connectedUser != 'undefined') { %>
+        <% conUser = connectedUser.surname.toUpperCase() + ' ' + connectedUser.name %>
+    <% } %>
+    <div class="connected-user"><%= conUser %></div>
+    <a href="/logout"><button class="btn-standard">Deconectare</button></a>
+</div>

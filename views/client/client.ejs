@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Telecomanda vot CES</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="/css/style_client.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+
+    <body>
+        <div id="client-container">
+            <div>
+                <input type="hidden" id="client-id" value="<%= (typeof connectedUser =='undefined')? '' : connectedUser._id %>">
+                <!-- <span><img src="/img/login_avatar.jpg"><p>Sunteti autentificat ca Traian Basescu</p></span> -->
+                <%- include('../include/_connected_user') %>
+                <!-- <button>Deconectare</button> -->
+            </div>
+            <div class="client-session">
+                <div id="client-session-name">Denumirea sesiunii:</div>
+                <div id="client-session-type">Tipul votului:</div> 
+            </div>
+            <div id="client-statistics">
+                <div class="cstat-vote-container">
+                    <div class="cstat-vote-count" id="cstat-vote-yes">0</div>
+                    <div class="cstat-vote-graph-container">
+                        <div class="cstat-vote-graph" id="client-statistics-yes" style="background-color: green;"></div>
+                    </div>
+                </div>
+
+                <div class="cstat-vote-container">
+                    <div class="cstat-vote-count" id="cstat-vote-no">0</div>
+                    <div class="cstat-vote-graph-container">
+                        <div class="cstat-vote-graph" id="client-statistics-no" style="background-color: crimson;"></div>
+                    </div>
+                </div>
+
+                <div class="cstat-vote-container">
+                    <div class="cstat-vote-count" id="cstat-vote-abstain">0</div>
+                    <div class="cstat-vote-graph-container">
+                        <div class="cstat-vote-graph" id="client-statistics-abstain" style="background-color: gold;"></div>
+                    </div>
+                </div>
+
+                <div class="cstat-vote-container">
+                    <div class="cstat-vote-count" id="cstat-vote-no-vote">0</div>
+                    <div class="cstat-vote-graph-container">
+                        <div class="cstat-vote-graph" id="client-statistics-no-vote" style="background-color: #888;"></div>
+                    </div>
+                </div>
+            </div>
+                
+            <div id="client-vote-buttons">               
+                    <div class="client-vote-but client-color-green" id="client-vote-yes">Votez DA</div>
+                    <div class="client-vote-but client-color-red" id="client-vote-no">Votez NU</div>
+                
+                    <div class="client-vote-but client-color-yellow" id="client-vote-abstain">Votez ABTINERE</div>
+                    <div class="client-vote-but client-color-grey" id="client-vote-no-vote">Sunt prezent, dar NU VOTEZ</div>               
+            </div>      
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script defer src="/js/client.js"></script>
+    </body>
+</html>

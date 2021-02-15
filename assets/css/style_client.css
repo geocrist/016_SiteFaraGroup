@@ -1,0 +1,102 @@
+/*TELECOMANDA VOT CLIENT*/
+:root{
+    --client-bck: #ccc;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#client-container{
+    max-width: 1000px;
+    background-color: var(--client-bck);
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.client-session{
+    background-color: var(--client-bck);
+}
+
+#client-session-name,
+#client-session-type
+{
+    padding: 5px 30px;
+    text-align: center;
+    border: 1px solid #888;
+    margin: 5px 30px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+
+
+/*statistics*/
+#client-statistics{
+    padding: 10px 30px;
+    background-color: var(--client-bck);
+}
+
+.cstat-vote-container{
+    margin: 10px 0;
+    display: flex;
+}
+
+.cstat-vote-count{
+    height: 100%;
+    width: 40px;
+}
+
+.cstat-vote-graph-container{
+    height: 30px;
+    width: 100%;
+    border: 1px solid #888;
+    background-color: #eee;
+}
+
+.cstat-vote-graph{
+    height: 100%;
+}
+
+#client-vote-buttons{
+    padding: 0px 30px;
+    background-color: var(--client-bck);
+    min-height: 200px;
+    display: grid;
+    gap: 10px;
+    justify-content: center;  
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-columns: minmax(100px, auto);
+}
+
+.client-vote-but{
+    text-align: center;    
+    cursor: pointer;
+}
+
+
+
+.client-color-green{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: darkgreen; 
+}
+.client-color-red{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background-color: crimson; 
+}
+.client-color-yellow{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-color: gold; 
+}
+.client-color-grey{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: #888; 
+}

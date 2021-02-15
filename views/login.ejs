@@ -1,0 +1,26 @@
+<!--include header-->
+<%- include('./include/_header') %>
+<!--/include header-->
+
+        <form id="login" method="POST">
+            <img src="img/login_avatar.jpg" class="avatar">
+            <h1 class="text_center_hor text_title">Autentificare</h1>
+            <h2 class="text_center_hor text_subtitle">Introduceti adresa de <nobr>e-mail</nobr> si parola pentru a va conecta la sistemul de vot</h2>
+                   
+            <% if(typeof error != 'undefined') { %>
+                <div class="alert" style="display: flex; background-color: red;" >
+                    <div class="alert-text"><%= (error=='undefined')? '': error %></div>
+                    <span class="alert-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>                 
+                </div>
+            <% } %>
+
+            <p>E-mail:</p>
+            <input type="text" name="username" value="<%= (typeof email=='undefined')? '': email %>">
+            <p>Parola:</p>
+            <input type="password" name="password">
+            <button class ="btn" type="submit">Autentificare</button>
+        </form>
+
+<!--include footer-->
+<%- include('./include/_footer') %>
+<!--/include footer-->

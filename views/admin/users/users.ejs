@@ -1,0 +1,73 @@
+<!--include header-->
+<%- include('../../include/_header') %>
+<!--/include header-->
+
+
+
+<body>
+    <div id="wrapper">
+        <%- include('../../include/_banner') %>
+        <%- include('../../include/_connected_user') %>
+        <%- include('../../include/_admin_menu') %>
+
+    <h1 class="text_center_hor text_title">Gestiunea utilizatorilor</h1>
+    <h2 class="text_center_hor text_subtitle">Folositi aceasta pagina pentru a crea sau sterge profile de utilizator si pentru a le modifica pe cele deja existente</h2>
+
+    <div class="box-nav d-flex justify-between">
+        <a href="/admin/users/add_user">
+            <button class="btn-standard">Utilizator nou</button>   
+        </a>    
+    </div>
+
+    <div class="alert">
+        <div class="alert-text"></div>
+        <span class="alert-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>                 
+    </div>
+
+    <div class="table-container" id="users-table-container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                    <th>E-mail</th>
+                    <th>Tip utilizator</th>
+                    <th>Stare cont</th>
+                    <th>Comenzi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(var i=0; i<users.length; i++) { %>
+                    <tr>          
+                        <td><%= users[i].surname %></td>
+                        <td><%= users[i].name %></td>
+                        <td><%= users[i].email %></td>
+                        <td><%= users[i].user_type %></td>
+                        <td>Activat</td>
+                        <td>
+                            <a href="/admin/users/edit_user/<%= users[i]._id %>" class="btn border-shadow">
+                                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                            </a>
+                            <!-- <a class="btn border-shadow delete">
+                                <span class="text-gradient delete-button" ><i class="fas fa-times"></i></span>
+                            </a> -->
+                            <% if(users[i].user_type === 'Client') { %>
+                                <button class="delete-button btn border-shadow" id="<%= users[i]._id %>">&times</button>
+                            <% } %>
+                        </td>             
+                    </tr>       
+                <% } %> 
+            </tbody>
+        </table> 
+    </div>
+
+
+    
+
+    </div>
+    <script defer src="/js/users.js"></script>
+</body>
+<!--include footer-->
+<%- include('../../include/_footer') %>
+<!--/include footer-->

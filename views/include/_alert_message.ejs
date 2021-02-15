@@ -1,0 +1,19 @@
+<% if(typeof alert_messages != 'undefined') { %>
+    <% for(let i=0; i<alert_messages.length; i++) { %>
+        
+            <% if(alert_messages[i].error) { %>
+                <div class="alert alert-red">
+                    <div class="alert-text"><%= alert_messages[i].error %></div>
+                    <span class="alert-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>                 
+                </div>
+
+                <% } %>
+
+            <% if(alert_messages[i].success) { %>
+                <div class="alert alert-green">
+                    <div class="alert-text"><%= alert_messages[i].success %></div>
+                    <span class="alert-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>                  
+                </div>
+            <% } %>
+    <% } %>
+<% } %>

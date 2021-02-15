@@ -1,0 +1,48 @@
+GET http://localhost:3000/admin/api/v1.0/vote_history?page=1&limit=2
+
+###
+
+GET http://localhost:3000/admin/api/v1.0/vote_history/6029771c4bcb831efcd4d48c
+
+###
+
+POST http://localhost:3000/admin/api/v1.0/vote_history
+Content-Type: application/json
+
+{
+    "name": "Vot pe OUG 7/2012",
+    "type": "Returnare catre initiator",
+    "condica": 
+    [   
+        {
+        "client_surname": "Vasilescu",
+        "client_name": "George",
+        "client_status": "ABTINERE"
+        },
+        {
+        "client_surname": "Ryan",
+        "client_name": "Dahl",
+        "client_status": "DA"
+        },
+        {
+        "client_surname": "Gates",
+        "client_name": "Bill",
+        "client_status": "NU"
+        },
+        {
+        "client_surname": "Ambrozie",
+        "client_name": "Nicolae",
+        "client_status": "NU A VOTAT"
+        },
+        {
+        "client_surname": "Cretu",
+        "client_name": "Ana-Maria",
+        "client_status": "DA"
+        }
+         
+    ]
+}
+
+###
+
+DELETE http://localhost:3000/admin/api/v1.0/vote_history/602979b4d98d222ae4bfae29

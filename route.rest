@@ -1,0 +1,31 @@
+GET http://localhost:3000/admin/api/v1.0/users
+
+###
+
+GET http://localhost:3000/admin/api/v1.0/users?_id=60247e991886882294798d1b
+
+###
+
+POST http://localhost:3000/admin/api/v1.0/users
+Content-Type: application/json
+
+{
+    "surname": "Doe",
+    "name": "John",
+    "email": "john.doe@yahoo.com"
+}
+
+###
+
+PATCH http://localhost:3000/admin/api/v1.0/users/602686591306023704849411
+Content-Type: application/json
+
+{
+    "surname": "Doe2",
+    "name": "John2",
+    "email": "john.doe@yahoo.com2"
+}
+
+###
+
+DELETE http://localhost:3000/admin/api/v1.0/users/60267368ff3c680c94f317da

@@ -1,0 +1,33 @@
+<!--include header-->
+<%- include('../../include/_header') %>
+<!--/include header-->
+<body>
+    <div id="wrapper">
+        <%- include('../../include/_banner') %>
+        <%- include('../../include/_admin_menu') %>
+
+
+        <h1 class="text_center_hor text_title">Utilizator nou</h1>
+        <h2 class="text_center_hor text_subtitle">Folositi acest formular pentru a crea un nou profil de utilizator.<br>Implicit, parola este [12345678], iar utilizatorul este inactiv.<br>Pentru a deveni activ, posesorul contului va trebui sa urmeze instructiunile primite prin <nobr>e-mail</nobr>.</h2>
+
+        <form class="add-update-user-form">
+            <div class="alert">
+                <div class="alert-text"></div>
+                <span class="alert-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>                 
+            </div>
+
+            <p>Nume:</p>
+            <input type="text" id="add-user-surname" name="surname">
+            <p>Prenume:</p>
+            <input type="text" id="add-user-name" name="name">
+            <p>E-mail:</p>
+            <input type="text" id="add-user-email" name="email">
+            <button id="add-user-submit" class="btn-standard">Salveaza</button>
+        </form>
+
+    </div>
+    <script defer src="/js/add_user.js"></script>
+</body>
+<!--include footer-->
+<%- include('../../include/_footer') %>
+<!--/include footer-->
