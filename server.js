@@ -191,6 +191,7 @@ io.on('connection', socket => {
 // app.listen(3000, (req, res) => {
 //     console.log('Server started on port 3000');
 // });
-http.listen(3000, (req, res) => {
-    console.log('Server started on port 3000');
+const port = process.env.PORT || 3000;
+http.listen(port, (req, res) => {
+    console.log(`Server started on port ${port}`);
 });
