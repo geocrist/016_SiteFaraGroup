@@ -5,11 +5,6 @@ const controller        = require('../controller/users_controller');
 
 exports.Display_Users = (req, res) => {
     //console.log('users home');
-    // axios.get('http://localhost:3000/admin/api/v1.0/users')
-    // .then(response => {
-    //     res.render('admin/users/users', {users: response.data, connectedUser: req.user});
-    // })
-    // .catch(); 
     
     Userdb.find()
     .then(allUsers => {

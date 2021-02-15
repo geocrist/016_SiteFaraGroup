@@ -13,7 +13,9 @@ function addTable() {
     tableHead.appendChild(tr);
 
 ////////////////////////////////
-    fetch('http://localhost:3000/admin/api/v1.0/vote_history?page=1&limit=50', {
+
+    fetch(`${window.location.origin}/admin/api/v1.0/vote_history?page=1&limit=50`, {
+    //fetch('http://localhost:3000/admin/api/v1.0/vote_history?page=1&limit=50', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     })
@@ -122,10 +124,11 @@ function deleteButCallback()
     //console.log('click');
     
     //alert(this.);
-
+    
     if(confirm('Doriti sa stergeti sesiunea selectata din baza de date?'))
     {
-        fetch(`/admin/api/v1.0/vote_history/${this.id}`, {
+        fetch(`${window.location.origin}/admin/api/v1.0/vote_history/${this.id}`, {
+        //fetch(`/admin/api/v1.0/vote_history/${this.id}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
         })
@@ -159,8 +162,10 @@ function showButCallback()
 {
     //console.log('click');
     
+    
 
-    fetch(`/admin/api/v1.0/vote_history/${this.id}`, {
+    fetch(`${window.location.origin}/admin/api/v1.0/vote_history/${this.id}`, {
+    //fetch(`/admin/api/v1.0/vote_history/${this.id}`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     })

@@ -32,8 +32,9 @@ document.getElementById("add-user-submit").addEventListener('click', e => {
             user_type: 'Client',
             active: true
         };
-
-        fetch('http://localhost:3000/admin/api/v1.0/users', {
+        
+        fetch(`${window.location.origin}/admin/api/v1.0/users`, {
+        //fetch('http://localhost:3000/admin/api/v1.0/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newUser)

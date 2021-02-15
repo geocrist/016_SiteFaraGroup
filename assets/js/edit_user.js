@@ -31,8 +31,8 @@ document.getElementById('edit-user-submit').addEventListener('click', e => {
             name: nameField.value,
             email: emailField.value
         };
-
-            fetch(`http://localhost:3000/admin/api/v1.0/users/${_id}`, {
+            fetch(`${window.location.origin}/admin/api/v1.0/users/${_id}`, {
+            //fetch(`http://localhost:3000/admin/api/v1.0/users/${_id}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(editedUser)
