@@ -65,14 +65,5 @@ route.get('/admin/api/v1.0/vote_history', vote_hist_controller.Get_Vote_History)
 route.post('/admin/api/v1.0/vote_history', vote_hist_controller.Add_Vote_History);
 route.delete('/admin/api/v1.0/vote_history/:_id', vote_hist_controller.Delete_Vote_History);
 
-//TEST
-route.get('/test', (req, res) => {
-    res.render('test_axios');
-});
-route.get('/test2', (req, res) => {
-    res.render('test_new_user');
-});
-
-
 
 module.exports = route;
