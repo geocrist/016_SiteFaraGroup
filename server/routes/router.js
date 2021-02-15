@@ -30,6 +30,7 @@ route.get('/error', (req, res) => {
 });
 route.get('/success', clientAdminRedirect);
 
+
 route.get('/logout', (req, res) => {
     //console.log('Logout');  ////////////////////
     req.logout();
