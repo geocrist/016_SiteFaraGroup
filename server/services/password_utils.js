@@ -25,7 +25,7 @@ function validPassword(password, hash, salt){
 
 function clientAdminRedirect(req, res) {
     //console.log('aaaaaaaaaa');    ///////////////
-    if(req.isAuthenticated) {
+    if(req.isAuthenticated()) {
         if(req.user.user_type === 'Admin') {
             res.redirect('/admin/users/users');
         } else {
@@ -40,12 +40,21 @@ function clientAdminRedirect(req, res) {
 function isAuth(req, res, next) {
     //console.log('isAuth');  ///////////////////
     //console.log(req.user);  ////////////
+    
     if(req.isAuthenticated()) {
         next();
     } else {
         //console.log(req.user.email);
         res.status(401).send('<h1>Nu sunteti autorizat</h1> <a href="/">Inapoi la logare</a>');
     }
+
+    // req.isAuthenticated()
+    // .then(() => {
+    //     next();
+    // })
+    // .catch(err => {
+    //     res.status(401).send('<h1>Nu sunteti autorizat</h1> <a href="/">Inapoi la logare</a>');
+    // });
 }
 
 module.exports = { generatePassword, validPassword, clientAdminRedirect, isAuth };
